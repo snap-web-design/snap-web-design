@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SnapWeb Design | Modern Websites for Photographers</title>
+  <style>
+    /* Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+    body { line-height: 1.6; background: #f9f9f9; color: #333; }
+    a { text-decoration: none; color: inherit; }
+
+    .container { max-width: 1100px; margin: auto; padding: 0 20px; }
+
+    /* NAVIGATION */
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 20px 0;
+      background: white;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav a {
+      font-weight: bold;
+      color: #2c3e50;
+      transition: color 0.3s;
+    }
+    nav a:hover { color: #e74c3c; }
+
+    /* HERO SLIDESHOW */
+    header { position: relative; height: 100vh; overflow: hidden; }
+    .hero-images { position: absolute; width: 100%; height: 100%; top: 0; left: 0; display: flex; animation: slide 5s infinite; }
+    .hero-images img { width: 100%; height: 100%; object-fit: cover; flex-shrink: 0; }
+    @keyframes slide {
+      0%   { transform: translateX(0); }
+      30%  { transform: translateX(0); }
+      33%  { transform: translateX(-100%); }
+      63%  { transform: translateX(-100%); }
+      66%  { transform: translateX(-200%); }
+      96%  { transform: translateX(-200%); }
+      100% { transform: translateX(0); }
+    }
+
+    /* HERO TEXT */
+    .hero-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+      text-shadow: 0 4px 12px rgba(0,0,0,0.8);
+      padding: 0 20px;
+      width: 100%;
+    }
+    .hero-content h1 { font-size: 3rem; margin-bottom: 20px; }
+    .hero-content p { font-size: 1.4rem; margin-bottom: 30px; }
+    .btn-primary { background: #e74c3c; padding: 12px 30px; color: white; border-radius: 5px; font-weight: bold; transition: 0.3s; }
+    .btn-primary:hover { background: #c0392b; }
+
+    /* SECTION HEADINGS */
+    section { padding: 70px 0; }
+    h2 { text-align: center; font-size: 2.4rem; margin-bottom: 40px; color: #2c3e50; }
+
+    /* ABOUT */
+    #about p { max-width: 700px; margin: auto; text-align: center; font-size: 1.1rem; color: #555; }
+
+    /* PORTFOLIO */
+    .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .portfolio-item {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: transform .3s;
+    }
+    .portfolio-item:hover { transform: scale(1.04); }
+    .portfolio-item img { width: 100%; height: auto; display: block; }
+    .portfolio-info { text-align: center; padding: 15px; }
+    .portfolio-info h3 { margin-bottom: 10px; }
+
+    /* SERVICES */
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      text-align: center;
+    }
+    .service-item {
+      background: white;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: transform .3s;
+    }
+    .service-item:hover { transform: translateY(-5px); }
+    .service-item h3 { color: #e74c3c; margin-bottom: 10px; }
+
+    /* PRICING */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      text-align: center;
+    }
+    .pricing-item {
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .price { font-size: 2rem; font-weight: bold; color: #e74c3c; margin: 15px 0; }
+
+    /* CONTACT */
+    form { max-width: 600px; margin: auto; display: flex; flex-direction: column; gap: 15px; }
+    input, textarea { padding: 12px; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem; }
+    button {
+      padding: 12px;
+      background: #e74c3c;
+      color: white;
+      border-radius: 5px;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover { background: #c0392b; }
+
+    /* FOOTER */
+    footer { background: #2c3e50; color: white; padding: 30px 0; text-align: center; margin-top: 40px; }
+    footer a { color: #e74c3c; }
+
+    /* MOBILE RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero-content h1 { font-size: 2.2rem; }
+      .hero-content p { font-size: 1.1rem; }
+      nav { flex-direction: column; gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- HERO SLIDESHOW -->
+  <header>
+    <div class="hero-images">
+      <img src="hero1.png" alt="">
+      <img src="hero2.png" alt="">
+      <img src="hero3.png" alt="">
+    </div>
+    <div class="hero-content">
+      <h1>SnapWeb Design</h1>
+      <p>Websites that capture your brand</p>
+      <a href="#portfolio" class="btn-primary">See Portfolio</a>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <h2>About Me</h2>
+      <p>I create modern, clean websites for photographers, small businesses, and entrepreneurs. Fast, mobile-friendly, and designed to convert visitors into clients.</p>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio">
+    <div class="container">
+      <h2>Portfolio</h2>
+      <div class="portfolio-grid">
+        <a href="portfolio.html" class="portfolio-item">
+          <img src="portfolio1.png" alt="">
+          <div class="portfolio-info">
+            <h3>Wedding Portfolio</h3>
+            <p>Clean layout, mobile-friendly, booking form included.</p>
+          </div>
+        </a>
+        <a href="portfolio.html" class="portfolio-item">
+          <img src="portfolio2.png" alt="">
+          <div class="portfolio-info">
+            <h3>Portrait Portfolio</h3>
+            <p>Modern design to highlight client work beautifully.</p>
+          </div>
+        </a>
+        <a href="portfolio.html" class="portfolio-item">
+          <img src="portfolio3.png" alt="">
+          <div class="portfolio-info">
+            <h3>Business Portfolio</h3>
+            <p>Professional design for small businesses.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+      <h2>Services</h2>
+      <div class="service-grid">
+        <div class="service-item">
+          <h3>1-Page Website</h3>
+          <p>Perfect for photographers and portfolios.</p>
+        </div>
+        <div class="service-item">
+          <h3>5-Page Website</h3>
+          <p>Home, About, Portfolio, Services, Contact.</p>
+        </div>
+        <div class="service-item">
+          <h3>Maintenance</h3>
+          <p>Fast updates, content changes, support & backups.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="container">
+      <h2>Pricing</h2>
+      <div class="pricing-grid">
+        <div class="pricing-item">
+          <h3>1-Page Website</h3>
+          <p class="price">R800</p>
+          <p>First 5 clients pay only R400!</p>
+        </div>
+        <div class="pricing-item">
+          <h3>5-Page Website</h3>
+          <p class="price">R1650</p>
+          <p>Full professional website with multiple pages.</p>
+        </div>
+        <div class="pricing-item">
+          <h3>Maintenance Plan</h3>
+          <p class="price">R250 / month</p>
+          <p>Includes updates, support, content changes & backups.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <h2>Contact Me</h2>
+      <form action="https://formspree.io/f/manznzbd" method="POST">
+        <label>Your email:</label>
+        <input type="email" name="email" required>
+        <label>Your message:</label>
+        <textarea name="message" rows="5" required></textarea>
+        <button type="submit">Get Your Free Mockup</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 SnapWeb Design. All Rights Reserved. | 
+    <a href="#">Facebook</a> | <a href="#">Instagram</a>
+  </footer>
+
+</body>
+</html>

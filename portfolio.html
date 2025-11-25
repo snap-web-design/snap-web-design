@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SnapWeb Design | Portfolio</title>
+<style>
+  body { font-family: 'Poppins', sans-serif; background: #f9f9f9; color: #333; margin:0; padding:0; }
+  .container { max-width: 1100px; margin: auto; padding: 20px; }
+
+  /* NAVIGATION */
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px 0;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  nav a { font-weight: bold; color: #2c3e50; transition: color 0.3s; }
+  nav a:hover { color: #e74c3c; }
+
+  h1 { text-align: center; margin: 40px 0; color: #2c3e50; }
+
+  /* Portfolio grid */
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+  .grid img { width: 100%; display: block; cursor: pointer; border-radius: 8px; transition: transform .3s; }
+  .grid img:hover { transform: scale(1.05); }
+
+  /* Lightbox */
+  .lightbox {
+    position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.9);
+    display: none; justify-content: center; align-items: center; z-index: 1000;
+  }
+  .lightbox img { max-width: 90%; max-height: 80%; border-radius: 8px; }
+  .close { position: absolute; top: 30px; right: 30px; font-size: 2rem; color: white; cursor: pointer; }
+
+  @media (max-width: 768px) { h1 { font-size: 2rem; } nav { flex-direction: column; gap: 10px; } }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <a href="index.html">Home</a>
+  <a href="portfolio.html">Portfolio</a>
+  <a href="index.html#contact">Contact</a>
+</nav>
+
+<div class="container">
+  <h1>My Portfolio</h1>
+  <div class="grid">
+    <img src="portfolio1.png" alt="">
+    <img src="portfolio2.png" alt="">
+    <img src="portfolio3.png" alt="">
+    <img src="portfolio4.png" alt="">
+    <img src="portfolio5.png" alt="">
+    <img src="portfolio6.png" alt="">
+    <img src="portfolio7.png" alt="">
+    <img src="portfolio8.png" alt="">
+    <img src="portfolio9.png" alt="">
+    <img src="portfolio10.png" alt="">
+    <img src="portfolio11.png" alt="">
+    <img src="portfolio12.png" alt="">
+  </div>
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <span class="close" id="close">&times;</span>
+  <img id="lightbox-img" src="">
+</div>
+
+<script>
+  const images = document.querySelectorAll('.grid img');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const closeBtn = document.getElementById('close');
+
+  images.forEach(img => {
+    img.addEventListener('click', () => {
+      lightbox.style.display = 'flex';
+      lightboxImg.src = img.src;
+    });
+  });
+
+  closeBtn.addEventListener('click', () => {
+    lightbox.style.display = 'none';
+  });
+
+  lightbox.addEventListener('click', e => {
+    if(e.target !== lightboxImg && e.target !== closeBtn) {
+      lightbox.style.display = 'none';
+    }
+  });
+</script>
+
+</body>
+</html>
